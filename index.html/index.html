@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+    <link rel="icon" href="./favicon/android-chrome-192x192.png">
+    <link rel="icon" href="./favicon/favicon-32x32.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<style>
+        body {
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f8f8;
+            line-height: 1.6;
+        }
+</style>
+
+
+
+<body>
+<div class="curtain-container">
+    <div class="curtain-content">
+        <img src="1.png" alt="background" class="curtain-image">
+    </div>
+</div>
+</body>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Đảm bảo không có nền trắng */
+}
+
+.curtain-container {
+    position: relative;
+    width: 80%; /* Điều chỉnh chiều rộng nhỏ lại */
+    max-width: 600px; /* Đảm bảo không quá lớn trên màn hình to */
+    height: 1000px;
+    max-height: 850px; /* Giới hạn chiều cao tối đa để không bị kéo dài vô hạn */
+    margin: 0 auto; /* Căn giữa */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+}
+
+.curtain-image {
+    width: 100%;
+    height: auto; /* Đảm bảo tỷ lệ không bị méo */
+    object-fit: contain;
+}
+
+.curtain-container::before,
+.curtain-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #C93130; /* Màu đỏ đồng bộ */
+    z-index: 2;
+}
+
+.curtain-container::before {
+    left: 0;
+    animation: open-curtain-left 2s forwards;
+}
+
+.curtain-container::after {
+    right: 0;
+    animation: open-curtain-right 2s forwards;
+}
+
+@keyframes open-curtain-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+@keyframes open-curtain-right {
+    from { transform: translateX(0); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+h5, h6, h1{
+    animation: pulse 2s infinite ease-in-out;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container h5, h6, h1 {
+    font-family: 'Ranchers', cursive;
+    font-size: 30px;
+    color: #C1272D;
+    font-weight: regular;
+    margin-top: 10px; /* Giảm khoảng cách phía trên */
+    margin-bottom: 10px; /* Giảm khoảng cách phía dưới */
+    line-height: 1.2;    /* Giảm chiều cao của dòng chữ */
+}
+
+.thank-you {
+    background: none; /* Xóa nền */
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #C1272D;      /* Màu chữ nổi bật */
+    margin-top: -40px; /* Kéo phần này lên gần ảnh trên */
+    margin-bottom: -40px; /* Giảm khoảng cách phía dưới */
+    font-family: 'Ranchers', cursive;
+}
+
+.container {
+    max-width: 850px; /* Điều chỉnh theo kích thước mong muốn */
+    margin: auto; /* Căn giữa trang */
+    background: none;
+    padding: 20px; /* Thêm khoảng cách cho đẹp */
+    border-radius: 10px; /* Bo góc nhẹ */
+    box-shadow: none;
+    border: none;
+}
+
+.container img {
+    width: 100%;
+    max-width: 600px; /* Giữ ảnh không quá to */
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px; /* Bo góc nhẹ */
+    image-rendering: crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.section {
+    opacity: 0;
+    transform: scale(0.9) translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    margin-bottom: -10px; /* Tạo khoảng cách giữa các phần */
+    padding: 20px; /* Thêm không gian bên trong */
+}
+
+.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+.music-container {
+    position: fixed;
+    bottom: -10px;
+    right: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách giữa icon và text */
+    opacity: 0.9; /* Độ trong suốt */
+    border-radius: 50px;
+    padding: 15px 25px; /* Điều chỉnh khoảng cách cho đẹp */
+    font-weight: regular;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000; /* Đảm bảo không bị che */
+    max-width: 200px; /* Giữ kích thước hợp lý trên màn hình nhỏ */
+    will-change: transform;
+}
+
+
+#vinyl {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Tạo hiệu ứng quay */
+.spin {
+    animation: rotate 3s linear infinite;
+}
+
+/* Keyframes để quay liên tục */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.falling-heart {
+    position: fixed;
+    top: 0;
+    font-size: 30px;
+    color: red;
+    animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10px) scale(0.8); opacity: 1; }
+    100% { transform: translateY(100vh) scale(1.2); opacity: 0; }
+}
+
+.guestbook {
+  font-family: 'Dancing Script', cursive;
+}
+
+.guestbook-container {
+    max-width: 1050px; /* Để khung không lớn hơn ảnh */
+    width: 600px; /* Chỉnh theo kích thước ảnh */
+    height: auto; /* Để nội dung không bị cắt */
+    margin: 20px auto;
+    padding: 45px;
+    background: #C1272D; /* Giữ nguyên nền */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+}
+
+/* Tiêu đề Sổ Lưu Bút */
+.guestbook-container h2 {
+    color: #FFFFFF;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* Tiêu đề khung lời chúc */
+.guestbook-container h3 {
+    color: #FFFFFF;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* Văn bản lời chúc */
+.guestbook-container p {
+    font-size: 30px;
+    color: #fff8dc;
+    margin-bottom: 15px;
+}
+
+/* Ô nhập liệu */
+.guestbook-container input,
+.guestbook-container textarea {
+    width: 90%; /* Đảm bảo input không bị quá nhỏ */
+    margin: 10px auto; /* Căn giữa theo chiều ngang */
+    display: block; /* Để phần tử tự xuống hàng */
+    padding: 23px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+    font-size: 27px;
+    background: white;
+    color: #8B0000;
+    text-align: center; /* Căn giữa chữ bên trong */
+}
+
+.guestbook-container textarea {
+    min-height: 100px;
+}
+
+/* Nút gửi lời chúc */
+.guestbook-container button {
+    background: #FFFFFF; /* Nút trắng */
+    color: #8B0000;
+    padding: 23px 38px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 27px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.guestbook-container button:hover {
+    background: #fff8dc;
+}
+
+.guestbook-container button {
+    display: block;
+    margin: 15px auto; /* Căn giữa */
+}
+
+.guestbook-container button:active {
+    transform: scale(0.95);
+}
+
+#guestbookMessages {
+    max-height: 300px; /* Giới hạn chiều cao để kích hoạt thanh cuộn */
+    margin-top: 20px;
+    text-align: left;
+    overflow-y: auto;
+    padding: 10px;
+    border: 2px solid #ff6b6b; /* Viền nổi bật */
+    border-radius: 10px;       /* Bo góc mềm mại */
+    
+    /* Tạo thanh cuộn đẹp mắt */
+    scrollbar-width: thin;     /* Thanh cuộn mỏng */
+    scrollbar-color: #ff6b6b #f8f8f8; /* Màu thanh cuộn và nền */
+}
+
+.message {
+    background: #FFFFFF;
+    padding: 23px;
+    margin: 10px 0;
+    font-size: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid white; /* Viền trắng */
+    color: #808080;
+    font-family: 'Roboto', cursive;
+}
+
+.message strong {
+    color: #C1272D;
+    font-size: 30px;
+    letter-spacing: 1px; /* Khoảng cách giữa các ký tự */
+    font-family: 'Ranchers', cursive;
+}
+
+.swiper {
+    width: 100%;
+    max-width: 450px; /* Điều chỉnh kích thước theo mong muốn */
+    margin: auto;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    min-height: 200px; /* Điều chỉnh chiều cao phù hợp */
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.swiper-slide img {
+    width: 100%; /* Ảnh luôn chiếm toàn bộ chiều rộng slide */
+    height: auto; /* Đảm bảo tỷ lệ ảnh không bị méo */
+    object-position: center;
+    display: block;
+    margin: auto;
+    padding: 0;
+    border-radius: 0; /* Không bo góc */
+}
+
+.swiper-button-prev {
+    color: black; /* Đổi màu mũi tên */
+    left: -5px; /* Di chuyển nút mũi tên phải */
+    z-index: 10;
+}
+
+.swiper-button-next {
+    color: black; /* Đổi màu mũi tên */
+    right: -5px; /* Di chuyển nút mũi tên phải */
+    z-index: 10;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    transform: scale(0.5); /* Thu nhỏ mũi tên còn 80% kích thước ban đầu */
+}
+
+.image-container {
+    position: relative;
+    display: flex;  
+    flex-direction: column; /* Xếp ảnh theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    width: 100%;  
+    gap: 5px; /* Điều chỉnh khoảng cách giữa các ảnh */
+}
+
+.address-image {
+    width: 100%; /* Đảm bảo ảnh không bị co lại */
+    max-width: 500px; /* Giới hạn kích thước nếu cần */
+    height: auto; /* Tự động điều chỉnh chiều cao */
+    display: block;
+}
+
+.map-button {
+    position: absolute;
+    top: 48%; /* Chỉnh giá trị này để nút lên/xuống */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 12px 20px;
+    background-color: #4CAF50; 
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.map-button:hover {
+    background-color: #388E3C;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.le-gia-tien {
+    width: auto; 
+    max-width: 300px; /* Hoặc tùy chỉnh */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Hiệu ứng hiện dần */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-1deg); }
+    50% { transform: rotate(1deg); }
+    75% { transform: rotate(-0.5deg); }
+}
+
+.megaphone-container {
+    display: inline-block;
+    animation: shake 0.5s infinite ease-in-out;
+}
+</style>
+</head>
+
+<body>
+<div id="music-container" class="music-container">
+    <img id="vinyl" src="vinyl.png" alt="Vinyl Record" width="50">
+    <audio id="audio" src="tung-ngay-yeu-em.mp3"></audio>
+</div>
+
+<div class="container">
+<div class="megaphone-container">
+    <img src="2.png" alt="Báo mới đây">
+</div>
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="3.png" alt="Ảnh 1">
+        </div>
+        <div class="swiper-slide">
+            <img src="3-1.png" alt="Ảnh 2">
+        </div>
+    </div>
+    <!-- Nút điều hướng -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+<h5 class="wedding-title">Wedding Photos</h5>
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="4.png" alt="Ảnh 1">
+        </div>
+        <div class="swiper-slide">
+            <img src="4-1.png" alt="Ảnh 2">
+        </div>
+        <div class="swiper-slide">
+            <img src="4-2.png" alt="Ảnh 3">
+        </div>
+    </div>
+    <!-- Nút điều hướng -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+     <img src="5.png" class="section" alt="WeddingPhotos">
+     <img src="6.png" alt="Lễ Gia Tiên" class="le-gia-tien">
+     <img src="7.png" class="section" alt="AncestralCeremonyInfo">
+     <img src="8.png" class="section" alt="WeddingParty">
+     <img src="9.png" class="section" alt="WeddingPartyInfo">
+<div class="image-container">
+    <img src="10.png" class="section address-image" alt="AddressInfo">
+    <a href="https://maps.app.goo.gl/1nqnptA3AvdbYdVP9" target="_blank" class="map-button">
+        GU GỒ MAP Ở ĐÂY NÈ
+    </a>
+</div>
+<div class="guestbook-container">
+    <h2>Sổ Lưu Bút</h2>
+    <p>Tụi mình sẽ rất vui nếu như nhận được lời chúc từ mọi người đó ʕっ•ᴥ•ʔっ</p>
+    <input type="text" id="guestName" placeholder="Nhập tên của bạn">
+    <textarea id="guestMessage" placeholder="Nhập lời chúc"></textarea>
+    <button onclick="sendMessage()">Gửi đi đừng ngại</button>
+    <h3>Nhật Ký Kỷ Niệm</h3>
+    <div id="guestbookMessages"></div>
+</div>
+<div class="wedding-gift-box">
+    <h1 class="gift-title">Wedding Gift Box</h1>
+</div>
+<div class="container">
+    <img src="11.png" class="section" alt="QRCODEINFO">
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const leftCurtain = document.querySelector(".curtain-container::before");
+    const rightCurtain = document.querySelector(".curtain-container::after");
+
+    leftCurtain?.classList.add("open-left");
+    rightCurtain?.classList.add("open-right");
+});
+
+  document.addEventListener("DOMContentLoaded", function () {
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "falling-heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(() => {
+      if (document.querySelectorAll(".falling-heart").length < 20) {
+        createHeart();
+      }
+    }, 1500);
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".section");
+    function revealSections() {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            if (sectionTop < windowHeight - 100) {
+                section.classList.add("visible");
+            }
+        });
+    }
+    window.addEventListener("scroll", revealSections); 
+    revealSections();
+});
+let isPlaying = false;
+const audio = document.getElementById("audio");
+const vinyl = document.getElementById("vinyl");
+const musicContainer = document.getElementById("music-container");
+
+musicContainer.addEventListener("click", () => {
+    if (audio.paused) {
+        audio.play();
+        vinyl.classList.add("spin"); // Đĩa nhạc xoay khi phát
+    } else {
+        audio.pause();
+        vinyl.classList.remove("spin"); // Dừng xoay khi tạm dừng
+    }
+});
+
+// Khi nhạc tự dừng, cũng dừng đĩa
+music.addEventListener("pause", function () {
+    vinyl.classList.remove("spin");
+    playButton.innerHTML = '<i class="fa fa-play"></i>';
+    isPlaying = false;
+});
+</script>
+
+    <!-- Thêm Firebase SDK -->
+    <script type="module">
+const isAdmin = true; // 🔥 Đổi thành false nếu không phải admin
+// Import Firebase SDK
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from
+"https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDgyb1-VrK7flWVXlha8vEapS0BonKKDOU",
+    authDomain: "wedding-invitation-1b3c8.firebaseapp.com",
+    projectId: "wedding-invitation-1b3c8",
+    storageBucket: "wedding-invitation-1b3c8.appspot.com",
+    messagingSenderId: "440194839662",
+    appId: "1:440194839662:web:bbb00404a14259779ca27f"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// Hàm gửi lời chúc vào Firestore
+async function sendMessage() {
+    console.log("🔥 Hàm sendMessage() đã được gọi");
+
+// Lấy dữ liệu từ ô nhập
+    const name = document.getElementById("guestName").value;
+    const message = document.getElementById("guestMessage").value;
+
+// Kiểm tra nếu chưa nhập đủ thì cảnh báo
+    if (!name || !message) {
+        console.warn("⚠️ Vui lòng nhập tên và lời chúc!");
+        return;
+    }
+
+    try {
+        console.log("📤 Đang lưu vào Firestore...");
+        const docRef = await addDoc(collection(db, "guestbook"), {
+            name: name,
+            message: message,
+            timestamp: serverTimestamp(),
+        });
+        console.log("✅ Gửi thành công! ID: ", docRef.id);
+
+// Xóa nội dung nhập sau khi gửi thành công
+        document.getElementById("guestName").value = "";
+        document.getElementById("guestMessage").value = "";
+
+    } catch (error) {
+        console.error("❌ Lỗi khi gửi tin nhắn: ", error);
+    }
+}
+
+import { deleteDoc, doc } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
+
+async function deleteMessage(messageId) {
+    if (!confirm("Bạn có chắc chắn muốn xóa lời chúc này?")) return; // Xác nhận xóa
+
+    try {
+        await deleteDoc(doc(db, "guestbook", messageId));
+        console.log("✅ Xóa thành công!");
+    } catch (error) {
+        console.error("❌ Lỗi khi xóa: ", error);
+    }
+}
+
+// ✅ Lắng nghe thay đổi trong Firestore để cập nhật lời chúc theo thời gian thực
+// Chỉ giữ một khai báo listenMessages duy nhất!
+function listenMessages() {
+    const messagesRef = collection(db, "guestbook");
+    onSnapshot(messagesRef, (snapshot) => {
+    const messageContainer = document.getElementById("guestbookMessages");
+    messageContainer.innerHTML = ""; // Xóa nội dung cũ trước khi cập nhật
+    snapshot.forEach((doc) => {
+            const msg = doc.data();
+            const messageId = doc.id;
+            const div = document.createElement("div");
+            div.classList.add("message");
+            div.innerHTML = `<strong>${msg.name}:</strong> ${msg.message}`;
+
+// Nếu là admin, thêm nút xóa
+if (isAdmin) {
+   const deleteBtn = document.createElement("button");
+   deleteBtn.textContent = "❌";
+   deleteBtn.style.position = "absolute"; // Đặt vị trí tuyệt đối
+   deleteBtn.style.top = "5px";// Đưa nút lên sát mép trên
+   deleteBtn.style.right = "5px";// Đưa nút sang sát mép phải
+   deleteBtn.style.background = "white";
+   deleteBtn.style.color = "red";
+   deleteBtn.style.border = "none";
+   deleteBtn.style.padding = "5px 10px";
+   deleteBtn.style.borderRadius = "50%";  // Làm tròn nút
+   deleteBtn.style.fontSize = "10px";      // Giảm kích thước chữ
+   deleteBtn.style.width = "16px";        // Kích thước nút nhỏ gọn
+   deleteBtn.style.height = "16px";       
+   deleteBtn.style.display = "flex";
+   deleteBtn.style.alignItems = "center";
+   deleteBtn.style.justifyContent = "center";
+   deleteBtn.style.cursor = "pointer";
+   deleteBtn.onclick = () => deleteMessage(messageId);
+   div.style.position = "relative";
+   div.appendChild(deleteBtn);
+}
+   messageContainer.appendChild(div);
+});
+});
+}
+
+// Đảm bảo các hàm có thể gọi từ HTML
+document.addEventListener("DOMContentLoaded", () => {
+    window.sendMessage = sendMessage;
+    listenMessages(); // Lắng nghe tin nhắn khi trang tải
+});
+    </script>
+    <footer class="thank-you">
+        <p> Thank You Vinamilk !</p>
+    </footer>
+
+<script>
+var swipers = document.querySelectorAll(".mySwiper");
+
+swipers.forEach((swiperEl) => {
+    new Swiper(swiperEl, {
+        loop: true,
+        navigation: {
+            nextEl: swiperEl.querySelector(".swiper-button-next"),
+            prevEl: swiperEl.querySelector(".swiper-button-prev"),
+        },
+    });
+});
+</script>
+</body>
+</html>
