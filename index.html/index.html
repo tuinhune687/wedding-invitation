@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,16 +27,6 @@
         }
 </style>
 
-
-
-<body>
-<div class="curtain-container">
-    <div class="curtain-content">
-        <img src="1.png" alt="background" class="curtain-image">
-    </div>
-</div>
-</body>
-
 <style>
 html, body {
     margin: 0;
@@ -43,59 +34,6 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: transparent; /* Đảm bảo không có nền trắng */
-}
-
-.curtain-container {
-    position: relative;
-    width: 80%; /* Điều chỉnh chiều rộng nhỏ lại */
-    max-width: 600px; /* Đảm bảo không quá lớn trên màn hình to */
-    height: 1000px;
-    max-height: 850px; /* Giới hạn chiều cao tối đa để không bị kéo dài vô hạn */
-    margin: 0 auto; /* Căn giữa */
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
-}
-
-.curtain-image {
-    width: 100%;
-    height: auto; /* Đảm bảo tỷ lệ không bị méo */
-    object-fit: contain;
-}
-
-.curtain-container::before,
-.curtain-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: #C93130; /* Màu đỏ đồng bộ */
-    z-index: 2;
-}
-
-.curtain-container::before {
-    left: 0;
-    animation: open-curtain-left 2s forwards;
-}
-
-.curtain-container::after {
-    right: 0;
-    animation: open-curtain-right 2s forwards;
-}
-
-@keyframes open-curtain-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-}
-
-@keyframes open-curtain-right {
-    from { transform: translateX(0); }
-    to { transform: translateX(100%); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
 }
 
 h5, h6, h1{
@@ -150,11 +88,12 @@ h5, h6, h1{
 }
 
 .section {
-    opacity: 0;
-    transform: scale(0.9) translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    margin-bottom: -10px; /* Tạo khoảng cách giữa các phần */
-    padding: 20px; /* Thêm không gian bên trong */
+    width: 100%;
+    max-width: 600px; /* Đảm bảo không bị quá rộng */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Căn giữa */
+    object-fit: contain;
 }
 
 .visible {
@@ -220,11 +159,11 @@ h5, h6, h1{
 }
 
 .guestbook-container {
-    max-width: 1050px; /* Để khung không lớn hơn ảnh */
-    width: 600px; /* Chỉnh theo kích thước ảnh */
+    max-width: 600px; /* Để khung không lớn hơn ảnh */
+    width: 100%; /* Chỉnh theo kích thước ảnh */
     height: auto; /* Để nội dung không bị cắt */
     margin: 20px auto;
-    padding: 45px;
+    padding: 30px;
     background: #C1272D; /* Giữ nguyên nền */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -441,6 +380,41 @@ h5, h6, h1{
     display: inline-block;
     animation: shake 0.5s infinite ease-in-out;
 }
+
+/* Định dạng mặc định (máy tính) */
+body {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Chỉnh cho tablet (màn hình từ 768px đến 1024px) */
+@media (max-width: 1024px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        width: 90%; /* Giảm kích thước container */
+    }
+}
+
+/* Chỉnh cho điện thoại (màn hình nhỏ hơn 768px) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .box {
+        width: 100%; /* Chiếm toàn bộ màn hình */
+        max-width: none; /* Không giới hạn kích thước */
+    }
+}
 </style>
 </head>
 
@@ -449,7 +423,7 @@ h5, h6, h1{
     <img id="vinyl" src="vinyl.png" alt="Vinyl Record" width="50">
     <audio id="audio" src="tung-ngay-yeu-em.mp3"></audio>
 </div>
-
+<img src="1.png" class="section" alt="WeddingBackground">
 <div class="container">
 <div class="megaphone-container">
     <img src="2.png" alt="Báo mới đây">
@@ -512,13 +486,6 @@ h5, h6, h1{
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const leftCurtain = document.querySelector(".curtain-container::before");
-    const rightCurtain = document.querySelector(".curtain-container::after");
-
-    leftCurtain?.classList.add("open-left");
-    rightCurtain?.classList.add("open-right");
-});
 
   document.addEventListener("DOMContentLoaded", function () {
     function createHeart() {
