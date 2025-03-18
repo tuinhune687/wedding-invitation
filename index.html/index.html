@@ -272,6 +272,38 @@ h5, h6, h1{
     font-family: 'Ranchers', cursive;
 }
 
+@media (max-width: 768px) {
+    .guestbook-container {
+        max-width: 90%;  /* Chiếm 90% màn hình để vừa vặn */
+        padding: 15px;  /* Giảm padding cho gọn */
+    }
+
+    .guestbook-container h2, 
+    .guestbook-container h3 {
+        font-size: 40px; /* Giảm kích thước tiêu đề */
+    }
+
+    .guestbook-container input, 
+    .guestbook-container textarea {
+        font-size: 20px; /* Chữ nhỏ hơn để không bị to quá */
+        padding: 15px; 
+    }
+
+    .guestbook-container button {
+        font-size: 22px;
+        padding: 15px 30px;
+    }
+
+    .message {
+        font-size: 20px; /* Giảm cỡ chữ lời chúc */
+        padding: 15px;
+    }
+
+    .message strong {
+        font-size: 25px;
+    }
+}
+
 .swiper {
     width: 100%;
     max-width: 450px; /* Điều chỉnh kích thước theo mong muốn */
