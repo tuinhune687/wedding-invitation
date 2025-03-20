@@ -4,28 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
+    <link rel="icon" href="./favicon/favicon-32x32.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ranchers&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
-    <link rel="icon" href="./favicon/android-chrome-192x192.png">
-    <link rel="icon" href="./favicon/favicon-32x32.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&family=Ranchers&family=Bungee&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<style>
-        body {
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f8f8;
-            line-height: 1.6;
-        }
-</style>
+</head>
 
 <style>
 html, body {
@@ -33,45 +18,43 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    background-color: transparent; /* Đảm bảo không có nền trắng */
-}
-
-h5, h6, h1{
-    animation: pulse 2s infinite ease-in-out;
-    color: red;
-    font-weight: bold;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    line-height: 1.6;
 }
 
-.container h5, h6, h1 {
+h1, h5 {
+    animation: pulse 2s infinite ease-in-out;
     font-family: 'Ranchers', cursive;
     font-size: 30px;
     color: #C1272D;
-    font-weight: regular;
-    margin-top: 10px; /* Giảm khoảng cách phía trên */
-    margin-bottom: 10px; /* Giảm khoảng cách phía dưới */
-    line-height: 1.2;    /* Giảm chiều cao của dòng chữ */
-}
-
-.thank-you {
-    background: none; /* Xóa nền */
-    text-align: center;
-    font-size: 1.2rem;
     font-weight: bold;
-    color: #C1272D;      /* Màu chữ nổi bật */
-    margin-top: -40px; /* Kéo phần này lên gần ảnh trên */
-    margin-bottom: -40px; /* Giảm khoảng cách phía dưới */
-    font-family: 'Ranchers', cursive;
+    margin: 10px 0;
+    line-height: 1.2;
 }
 
 .container {
-    max-width: 850px; /* Điều chỉnh theo kích thước mong muốn */
     margin: auto; /* Căn giữa trang */
     background: none;
-    padding: 20px; /* Thêm khoảng cách cho đẹp */
     border-radius: 10px; /* Bo góc nhẹ */
     box-shadow: none;
     border: none;
+    display: flex;
+    flex-direction: column; /* Xếp dọc */
+    align-items: center; /* Căn giữa */
+    width: 100%; /* Chiều rộng bằng 100% màn hình */
+    padding: 10px; /* Chừa khoảng trống hai bên */
+}
+
+.card {
+    width: 90%; /* Chiếm 90% chiều rộng màn hình */
+    max-width: 600px; /* Không to hơn 600px trên màn hình lớn */
+    padding: 20px;
+    margin-bottom: 10px; /* Chừa khoảng cách giữa các thẻ */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container img {
@@ -79,12 +62,9 @@ h5, h6, h1{
     max-width: 600px; /* Giữ ảnh không quá to */
     height: auto;
     object-fit: contain;
-    border-radius: 10px; /* Bo góc nhẹ */
     image-rendering: crisp-edges;
     image-rendering: -webkit-optimize-contrast;
     padding: 10px;
-    background-color: #fff;
-    border-radius: 15px;
 }
 
 .section {
@@ -100,6 +80,7 @@ h5, h6, h1{
     opacity: 1;
     transform: scale(1) translateY(0);
 }
+
 .music-container {
     position: fixed;
     bottom: -10px;
@@ -119,19 +100,16 @@ h5, h6, h1{
     will-change: transform;
 }
 
-
 #vinyl {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     transition: transform 0.5s ease-in-out;
 }
 
-/* Tạo hiệu ứng quay */
 .spin {
     animation: rotate 3s linear infinite;
 }
 
-/* Keyframes để quay liên tục */
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -144,206 +122,78 @@ h5, h6, h1{
 .falling-heart {
     position: fixed;
     top: 0;
+    left: calc(10% + 80% * var(--random-x)); /* Ngẫu nhiên vị trí ngang */
     font-size: 30px;
     color: red;
     animation: fall 5s linear infinite;
+    opacity: 0.8;
+    will-change: transform, opacity;
 }
 
 @keyframes fall {
-    0% { transform: translateY(-10px) scale(0.8); opacity: 1; }
-    100% { transform: translateY(100vh) scale(1.2); opacity: 0; }
-}
-
-.guestbook {
-  font-family: 'Dancing Script', cursive;
-}
-
-.guestbook-container {
-    max-width: 500px; /* Để khung không lớn hơn ảnh */
-    width: 100%; /* Chỉnh theo kích thước ảnh */
-    height: auto; /* Để nội dung không bị cắt */
-    margin: 20px auto;
-    padding: 25px;
-    background: #C1272D; /* Giữ nguyên nền */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: white;
-}
-
-/* Tiêu đề Sổ Lưu Bút */
-.guestbook-container h2 {
-    color: #FFFFFF;
-    font-family: 'Dancing Script', cursive;
-    font-size: 50px;
-    text-align: center;
-}
-
-/* Tiêu đề khung lời chúc */
-.guestbook-container h3 {
-    color: #FFFFFF;
-    font-family: 'Dancing Script', cursive;
-    font-size: 50px;
-    text-align: center;
-}
-
-/* Văn bản lời chúc */
-.guestbook-container p {
-    font-size: 20px;
-    color: #fff8dc;
-    margin-bottom: 15px;
-}
-
-/* Ô nhập liệu */
-.guestbook-container input,
-.guestbook-container textarea {
-    width: 90%; /* Đảm bảo input không bị quá nhỏ */
-    margin: 10px auto; /* Căn giữa theo chiều ngang */
-    display: block; /* Để phần tử tự xuống hàng */
-    padding: 23px;
-    border: 1px solid #FFFFFF;
-    border-radius: 8px;
-    font-size: 27px;
-    background: white;
-    color: #8B0000;
-    text-align: center; /* Căn giữa chữ bên trong */
-}
-
-.guestbook-container textarea {
-    min-height: 100px;
-}
-
-/* Nút gửi lời chúc */
-.guestbook-container button {
-    background: #FFFFFF; /* Nút trắng */
-    color: #8B0000;
-    padding: 23px 38px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 27px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.guestbook-container button:hover {
-    background: #fff8dc;
-}
-
-.guestbook-container button {
-    display: block;
-    margin: 15px auto; /* Căn giữa */
-}
-
-.guestbook-container button:active {
-    transform: scale(0.95);
-}
-
-#guestbookMessages {
-    max-height: 300px; /* Giới hạn chiều cao để kích hoạt thanh cuộn */
-    margin-top: 20px;
-    text-align: left;
-    overflow-y: auto;
-    padding: 10px;
-    border: 2px solid #ff6b6b; /* Viền nổi bật */
-    border-radius: 10px;       /* Bo góc mềm mại */
-    
-    /* Tạo thanh cuộn đẹp mắt */
-    scrollbar-width: thin;     /* Thanh cuộn mỏng */
-    scrollbar-color: #ff6b6b #f8f8f8; /* Màu thanh cuộn và nền */
-}
-
-.message {
-    background: #FFFFFF;
-    padding: 23px;
-    margin: 10px 0;
-    font-size: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid white; /* Viền trắng */
-    color: #808080;
-    font-family: 'Roboto', cursive;
-}
-
-.message strong {
-    color: #C1272D;
-    font-size: 30px;
-    letter-spacing: 1px; /* Khoảng cách giữa các ký tự */
-    font-family: 'Ranchers', cursive;
-}
-
-@media (max-width: 768px) {
-    .guestbook-container {
-        max-width: 90%;  /* Chiếm 90% màn hình để vừa vặn */
-        padding: 15px;  /* Giảm padding cho gọn */
+    0% { 
+        transform: translateY(-10px) translateX(0) scale(0.8); 
+        opacity: 1; 
     }
-
-    .guestbook-container h2, 
-    .guestbook-container h3 {
-        font-size: 40px; /* Giảm kích thước tiêu đề */
+    50% { 
+        transform: translateY(50vh) translateX(10px) scale(1); 
     }
-
-    .guestbook-container input, 
-    .guestbook-container textarea {
-        font-size: 20px; /* Chữ nhỏ hơn để không bị to quá */
-        padding: 15px; 
+    100% { 
+        transform: translateY(100vh) translateX(-10px) scale(1.2); 
+        opacity: 0; 
     }
+}
 
-    .guestbook-container button {
-        font-size: 22px;
-        padding: 15px 30px;
-    }
+@keyframes megaphone-shake {
+    0% { transform: scale(1) rotate(0); }
+    10% { transform: scale(1.01) rotate(-1deg); }
+    20% { transform: scale(1.04) rotate(2deg); }
+    30% { transform: scale(1.03) rotate(-1deg); }
+    40% { transform: scale(1.04) rotate(2deg); }
+    50% { transform: scale(1) rotate(0); }
+}
 
-    .message {
-        font-size: 20px; /* Giảm cỡ chữ lời chúc */
-        padding: 15px;
-    }
-
-    .message strong {
-        font-size: 25px;
-    }
+.megaphone-effect {
+    animation: megaphone-shake 1s infinite ease-in-out;
 }
 
 .swiper {
     width: 100%;
-    max-width: 450px; /* Điều chỉnh kích thước theo mong muốn */
+    max-width: 600px; /* Thu nhỏ lại để không chiếm quá nhiều không gian */
     margin: auto;
-    justify-content: center; /* Căn giữa theo chiều ngang */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    min-height: 200px; /* Điều chỉnh chiều cao phù hợp */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px; /* Giữ chiều cao phù hợp */
 }
 
 .swiper-slide {
     display: flex;
-    align-items: center; /* Căn giữa theo chiều dọc */
-    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center;
+    justify-content: center;
 }
 
 .swiper-slide img {
-    width: 100%; /* Ảnh luôn chiếm toàn bộ chiều rộng slide */
-    height: auto; /* Đảm bảo tỷ lệ ảnh không bị méo */
-    object-position: center;
+    width: 100%; /* Ảnh luôn full chiều rộng */
+    max-width: 600px; /* Thu nhỏ lại để không chiếm quá nhiều không gian */
+    height: auto; /* Giữ tỷ lệ ảnh */
+    object-fit: contain;
     display: block;
-    margin: auto;
-    padding: 0;
-    border-radius: 0; /* Không bo góc */
-}
-
-.swiper-button-prev {
-    color: black; /* Đổi màu mũi tên */
-    left: -5px; /* Di chuyển nút mũi tên phải */
-    z-index: 10;
-}
-
-.swiper-button-next {
-    color: black; /* Đổi màu mũi tên */
-    right: -5px; /* Di chuyển nút mũi tên phải */
-    z-index: 10;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
-    transform: scale(0.5); /* Thu nhỏ mũi tên còn 80% kích thước ban đầu */
+    color: black;
+    z-index: 10;
+    transform: scale(0.7); /* Giảm kích thước mũi tên */
+}
+
+.swiper-button-prev {
+    left: -5px; /* Đưa mũi tên sát mép trái hơn */
+}
+
+.swiper-button-next {
+    right: -5px; /* Đưa mũi tên sát mép phải hơn */
 }
 
 .image-container {
@@ -357,19 +207,19 @@ h5, h6, h1{
 }
 
 .address-image {
-    width: 100%; /* Đảm bảo ảnh không bị co lại */
-    max-width: 500px; /* Giới hạn kích thước nếu cần */
-    height: auto; /* Tự động điều chỉnh chiều cao */
+    width: 100%;
+    max-width: 500px; /* Điều chỉnh kích thước theo ảnh */
+    height: auto;
     display: block;
 }
 
 .map-button {
     position: absolute;
-    top: 48%; /* Chỉnh giá trị này để nút lên/xuống */
+    top: 48%; /* Đặt vị trí giữa ảnh */
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 12px 20px;
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -386,66 +236,126 @@ h5, h6, h1{
     transform: translate(-50%, -50%) scale(1.1);
 }
 
-.le-gia-tien {
-    width: auto; 
-    max-width: 300px; /* Hoặc tùy chỉnh */
-    height: auto;
-    display: block;
+.guestbook-container {
+    max-width: 550px; /* Để khung không lớn hơn ảnh */
+    width: 100%; /* Chỉnh theo kích thước ảnh */
+    height: auto; /* Để nội dung không bị cắt */
     margin: 20px auto;
-    animation: fadeIn 2s ease-in-out;
+    padding: 25px;
+    background: #C1272D; /* Giữ nguyên nền */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+    display: flex;  
+    flex-direction: column; /* Xếp ảnh theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
 }
 
-/* Hiệu ứng hiện dần */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1); }
+.guestbook-container h2, .guestbook-container h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px; /* Nhỏ hơn để không bị to quá */
+    margin-bottom: 10px;
 }
 
-@keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-1deg); }
-    50% { transform: rotate(1deg); }
-    75% { transform: rotate(-0.5deg); }
+.guestbook-container p {
+    font-size: 16px;
+    color: #fff8dc;
+    margin-bottom: 15px;
 }
 
-.megaphone-container {
-    display: inline-block;
-    animation: shake 0.5s infinite ease-in-out;
-}
-
-/* Định dạng mặc định (máy tính) */
-body {
+.guestbook-container input, .guestbook-container textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
     font-size: 18px;
-    margin: 0;
-    padding: 0;
+    background: white;
+    color: #8B0000;
+    text-align: center;
 }
 
-/* Chỉnh cho tablet (màn hình từ 768px đến 1024px) */
-@media (max-width: 1024px) {
-    body {
-        font-size: 16px;
-    }
-    
-    .container {
-        width: 90%; /* Giảm kích thước container */
-    }
+.guestbook-container textarea {
+    min-height: 80px;
 }
 
-/* Chỉnh cho điện thoại (màn hình nhỏ hơn 768px) */
+.guestbook-container button {
+    background: #FFFFFF;
+    color: #8B0000;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.guestbook-container button:hover {
+    background: #fff8dc;
+}
+
+.guestbook-container button:active {
+    transform: scale(0.95);
+}
+
+#guestbookMessages {
+    max-height: 250px; /* Giảm chiều cao để vừa hơn */
+    margin-top: 15px;
+    text-align: left;
+    overflow-y: auto;
+    padding: 10px;
+    border: 2px solid #ff6b6b;
+    border-radius: 10px;
+
+    scrollbar-width: thin;     /* Thanh cuộn mỏng */
+    scrollbar-color: #ff6b6b #f8f8f8; /* Màu thanh cuộn và nền */
+}
+
+.message {
+    background: #FFFFFF;
+    padding: 15px;
+    margin: 8px 0;
+    font-size: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid white;
+    color: #808080;
+    font-family: 'Roboto', cursive;
+}
+
+.message strong {
+    color: #C1272D;
+    font-size: 22px;
+    font-family: 'Roboto', cursive;
+}
+
+.thank-you {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #C1272D;
+    font-family: 'Ranchers', cursive;
+    margin: -40px 0;
+}
+
+/* CSS cho điện thoại (màn hình nhỏ hơn 768px) */
 @media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
+  body {
+    background-size: contain; /* Giúp hình ảnh hiển thị đầy đủ mà không bị cắt */
+  }
 
-    .container {
-        width: 95%;
-        padding: 10px;
-    }
+  img {
+    width: 100%; /* Ảnh sẽ vừa đủ chiều rộng màn hình */
+    height: auto;
+  }
 
-    .box {
-        width: 100%; /* Chiếm toàn bộ màn hình */
-        max-width: none; /* Không giới hạn kích thước */
-    }
+  * {
+    max-width: 100vw; /* Tránh tràn màn hình */
+    overflow-x: hidden; 
+  }
 }
 </style>
 </head>
@@ -455,12 +365,13 @@ body {
     <img id="vinyl" src="vinyl.png" alt="Vinyl Record" width="50">
     <audio id="audio" src="tung-ngay-yeu-em.mp3"></audio>
 </div>
-<img src="1.png" class="section" alt="WeddingBackground">
-<div class="container">
-<div class="megaphone-container">
-    <img src="2.png" alt="Báo mới đây">
+
+<div class="image-container">
+    <img src="1.png" class="section" alt="WeddingPhotos">
+    <img src="2.png" class="section megaphone-effect" alt="WeddingStory">
 </div>
-<div class="swiper mySwiper">
+
+<div id="story-slider" class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img src="3.png" alt="Ảnh 1">
@@ -469,12 +380,13 @@ body {
             <img src="3-1.png" alt="Ảnh 2">
         </div>
     </div>
-    <!-- Nút điều hướng -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next next"></div>
+    <div class="swiper-button-prev prev"></div>
 </div>
+
 <h5 class="wedding-title">Wedding Photos</h5>
-<div class="swiper mySwiper">
+
+<div id="gallery-slider" class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img src="4.png" alt="Ảnh 1">
@@ -486,21 +398,26 @@ body {
             <img src="4-2.png" alt="Ảnh 3">
         </div>
     </div>
-    <!-- Nút điều hướng -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next next"></div>
+    <div class="swiper-button-prev prev"></div>
 </div>
-     <img src="5.png" class="section" alt="WeddingPhotos">
-     <img src="6.png" alt="Lễ Gia Tiên" class="le-gia-tien">
-     <img src="7.png" class="section" alt="AncestralCeremonyInfo">
-     <img src="8.png" class="section" alt="WeddingParty">
-     <img src="9.png" class="section" alt="WeddingPartyInfo">
+
 <div class="image-container">
-    <img src="10.png" class="section address-image" alt="AddressInfo">
-    <a href="https://maps.app.goo.gl/1nqnptA3AvdbYdVP9" target="_blank" class="map-button">
-        GU GỒ MAP Ở ĐÂY NÈ
-    </a>
+    <img src="5.png" class="section" alt="WeddingPhotos">
+    <img src="6.png" class="section" alt="Lễ Gia Tiên">
+    <img src="7.png" class="section" alt="AncestralCeremonyInfo">
+    <img src="8.png" class="section" alt="WeddingParty">
+    <img src="9.png" class="section" alt="WeddingPartyInfo">
 </div>
+
+<div class="image-container">
+        <img src="10.png" class="section" alt="AddressInfo">
+        <a href="https://maps.app.goo.gl/1nqnptA3AvdbYdVP9" target="_blank" class="map-button">
+            GU GỒ MAP Ở ĐÂY NÈ
+        </a>
+    </div>
+</div>
+
 <div class="guestbook-container">
     <h2>Sổ Lưu Bút</h2>
     <p>Tụi mình sẽ rất vui nếu như nhận được lời chúc từ mọi người đó ʕっ•ᴥ•ʔっ</p>
@@ -510,34 +427,54 @@ body {
     <h3>Nhật Ký Kỷ Niệm</h3>
     <div id="guestbookMessages"></div>
 </div>
+
 <div class="wedding-gift-box">
     <h1 class="gift-title">Wedding Gift Box</h1>
 </div>
-<div class="container">
+<div class="image-container">
     <img src="11.png" class="section" alt="QRCODEINFO">
+    <a href="https://your-payment-link.com" target="_blank">
+    </a>
+    </div>
 </div>
 
 <script>
 
-  document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     function createHeart() {
-      const heart = document.createElement("div");
-      heart.className = "falling-heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
+        const heart = document.createElement("div");
+        heart.className = "falling-heart";
+        heart.innerHTML = "❤️";
+
+        let size = Math.random() * 20 + 10; // 10px - 30px
+        heart.style.fontSize = size + "px";
+
+        heart.style.left = Math.random() * 100 + "vw";
+
+        const colors = ["#ff4d4d", "#ff66a3", "#ff3385"];
+        heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+
+        document.body.appendChild(heart);
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
     }
 
     setInterval(() => {
-      if (document.querySelectorAll(".falling-heart").length < 20) {
-        createHeart();
-      }
+        if (document.querySelectorAll(".falling-heart").length < 20) {
+            createHeart();
+        }
     }, 1500);
-  });
+});
+
+setInterval(() => {
+    let maxHearts = window.innerWidth < 768 ? 10 : 20; // Mobile: 10, Desktop: 20
+    if (document.querySelectorAll(".falling-heart").length < maxHearts) {
+        createHeart();
+    }
+}, 1500);
 
 document.addEventListener("DOMContentLoaded", function () {
     const sections = document.querySelectorAll(".section");
@@ -553,26 +490,41 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", revealSections); 
     revealSections();
 });
+
 let isPlaying = false;
 const audio = document.getElementById("audio");
 const vinyl = document.getElementById("vinyl");
 const musicContainer = document.getElementById("music-container");
 
 musicContainer.addEventListener("click", () => {
-    if (audio.paused) {
-        audio.play();
-        vinyl.classList.add("spin"); // Đĩa nhạc xoay khi phát
-    } else {
+    if (isPlaying) {
         audio.pause();
-        vinyl.classList.remove("spin"); // Dừng xoay khi tạm dừng
+    } else {
+        audio.play();
     }
 });
 
-// Khi nhạc tự dừng, cũng dừng đĩa
-music.addEventListener("pause", function () {
-    vinyl.classList.remove("spin");
-    playButton.innerHTML = '<i class="fa fa-play"></i>';
+audio.addEventListener("play", () => {
+    isPlaying = true;
+    vinyl.classList.add("spin"); // Đĩa nhạc xoay khi phát
+});
+
+audio.addEventListener("pause", () => {
     isPlaying = false;
+    vinyl.classList.remove("spin"); // Dừng xoay khi tạm dừng
+});
+</script>
+
+<script>
+var swipers = document.querySelectorAll(".mySwiper");
+swipers.forEach((swiperEl) => {
+    new Swiper(swiperEl, {
+        loop: true,
+        navigation: {
+            nextEl: swiperEl.querySelector(".swiper-button-next"),
+            prevEl: swiperEl.querySelector(".swiper-button-prev"),
+        },
+    });
 });
 </script>
 
@@ -689,22 +641,9 @@ document.addEventListener("DOMContentLoaded", () => {
     listenMessages(); // Lắng nghe tin nhắn khi trang tải
 });
     </script>
+
     <footer class="thank-you">
         <p> Thank You Vinamilk !</p>
     </footer>
-
-<script>
-var swipers = document.querySelectorAll(".mySwiper");
-
-swipers.forEach((swiperEl) => {
-    new Swiper(swiperEl, {
-        loop: true,
-        navigation: {
-            nextEl: swiperEl.querySelector(".swiper-button-next"),
-            prevEl: swiperEl.querySelector(".swiper-button-prev"),
-        },
-    });
-});
-</script>
 </body>
 </html>
