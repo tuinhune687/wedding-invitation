@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
     <link rel="icon" href="./favicon/favicon-32x32.png">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Roboto:wght@400;700&family=Ranchers&family=Bungee&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <style>
@@ -155,47 +153,6 @@ h1, h5 {
 
 .megaphone-effect {
     animation: megaphone-shake 1s infinite ease-in-out;
-}
-
-.swiper {
-    width: 100%;
-    max-width: 600px; /* Thu nhỏ lại để không chiếm quá nhiều không gian */
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 180px; /* Giữ chiều cao phù hợp */
-}
-
-.swiper-slide {
-    visibility: visible !important;
-    opacity: 1 !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-}
-
-.swiper-slide img {
-    width: 100%; /* Ảnh luôn full chiều rộng */
-    max-width: 600px; /* Thu nhỏ lại để không chiếm quá nhiều không gian */
-    height: auto; /* Giữ tỷ lệ ảnh */
-    object-fit: contain;
-    display: block;
-}
-
-.swiper-button-prev,
-.swiper-button-next {
-    color: black;
-    z-index: 10;
-    transform: scale(0.7); /* Giảm kích thước mũi tên */
-}
-
-.swiper-button-prev {
-    left: -5px; /* Đưa mũi tên sát mép trái hơn */
-}
-
-.swiper-button-next {
-    right: -5px; /* Đưa mũi tên sát mép phải hơn */
 }
 
 .image-container {
@@ -367,6 +324,30 @@ h1, h5 {
     overflow-x: hidden; 
   }
 }
+
+.gallery-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.swiper {
+    width: 100%;
+    height: auto;
+    min-height: 300px; /* Đảm bảo đủ chiều cao */
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block; /* Tránh lỗi hiển thị */
+}
+
+@media (max-width: 768px) {
+    .swiper {
+        min-height: 200px; /* Điều chỉnh chiều cao cho điện thoại */
+    }
+}
 </style>
 </head>
 
@@ -381,36 +362,27 @@ h1, h5 {
     <img src="2.png" class="section megaphone-effect" alt="WeddingStory">
 </div>
 
-<div id="story-slider" class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="3.png" alt="Ảnh 1">
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="3.png" alt="Ảnh 3"></div>
+            <div class="swiper-slide"><img src="3-1.png" alt="Ảnh 3-1"></div>
         </div>
-        <div class="swiper-slide">
-            <img src="3-1.png" alt="Ảnh 2">
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
-    <div class="swiper-button-next next"></div>
-    <div class="swiper-button-prev prev"></div>
 </div>
 
-<h5 class="wedding-title">Wedding Photos</h5>
-
-<div id="gallery-slider" class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="4.png" alt="Ảnh 1">
+<div class="gallery-container">
+    <h5>Wedding Photos</h5>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="4.png" alt="Ảnh 4"></div>
+            <div class="swiper-slide"><img src="4-1.png" alt="Ảnh 4-1"></div>
+            <div class="swiper-slide"><img src="4-2.png" alt="Ảnh 4-2"></div>
         </div>
-        <div class="swiper-slide">
-            <img src="4-1.png" alt="Ảnh 2">
-        </div>
-        <div class="swiper-slide">
-            <img src="4-2.png" alt="Ảnh 3">
-        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
-    <div class="swiper-button-next next"></div>
-    <div class="swiper-button-prev prev"></div>
-</div>
 
 <div class="image-container">
     <img src="5.png" class="section" alt="WeddingPhotos">
@@ -525,24 +497,6 @@ audio.addEventListener("pause", () => {
 });
 </script>
 
-<script>
-var swipers = document.querySelectorAll(".mySwiper");
-swipers.forEach((swiperEl) => {
-    var swiperInstance = new Swiper(swiperEl, {
-        loop: true,
-        navigation: {
-            nextEl: swiperEl.querySelector(".swiper-button-next"),
-            prevEl: swiperEl.querySelector(".swiper-button-prev"),
-        },
-    });
-
-    swiperEl.querySelector(".swiper-button-next").addEventListener("click", function () {
-        setTimeout(() => {
-            swiperInstance.update();
-        }, 200); // Cập nhật Swiper sau khi chuyển slide
-    });
-});
-</script>
 
     <!-- Thêm Firebase SDK -->
     <script type="module">
@@ -661,5 +615,23 @@ document.addEventListener("DOMContentLoaded", () => {
     <footer class="thank-you">
         <p> Thank You Vinamilk !</p>
     </footer>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+var swiper = new Swiper(".mySwiper", {
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  loop: true, // Giữ lặp vô hạn
+  spaceBetween: 10, // Khoảng cách giữa ảnh
+  slidesPerView: 1, // Hiển thị 1 ảnh mỗi lần
+  observer: true, // Quan sát thay đổi DOM
+  observeParents: true, // Quan sát thay đổi trong phần tử cha
+});
+window.addEventListener("resize", function() {
+  swiper.update(); // Cập nhật Swiper khi thay đổi kích thước màn hình
+});
+</script>
 </body>
 </html>
